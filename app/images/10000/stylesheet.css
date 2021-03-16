@@ -1,0 +1,48 @@
+﻿header {
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+@media screen and (max-width: 670px) {
+    header {
+        min-height: 250px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        min-height: 125px;
+    }
+}
+
+h2 {
+    padding: 0 0 1rem 0;
+}
+
+.section {
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+
+.tabs .indicator {
+    background-color: #1a237e;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background: transparent;
+}
+
+.brand-logo {
+    font-weight: bold;
+}
+
+nav li a {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card-content {
+    height: 10%;
+}
