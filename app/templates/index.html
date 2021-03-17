@@ -1,13 +1,58 @@
 {% extends "base.html" %}
-    <title>Kroppskunst.no</title>
+<title>Kroppskunst.no</title>
 {% block header %}
+<style>
+    .card-title {
+        height: 5rem; 
+        color:#d32930; 
+        padding-left: 0.5rem; 
+        padding-right: 0.5rem; 
+        padding-top: 1rem;
+        margin: 0;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .card-image {
+        height: 17rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        overflow: hidden;
+
+    }
+
+    .card-image img {
+        max-height:fit-content;
+    }
+
+    .card-button {
+        width: 100%;
+    }
+
+</style>
 
 
 {% endblock %}
 
 {% block content %}
 
-xcbsmsmhsdmhfdm 
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-5 g-4">
+    {% for product in products %}
+    <div class="col">
+        <div class="card">
+            <div class="card-title">
+                <h5>{{ product.name }}</h5>
+            </div>
+            <div class="card-image">
+                <img src="https://img.kroppskunst.no/images/products/{{ product.img }}" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+                <p class="card-text"><button type="button" class="btn btn-primary card-button">fra 28.19 NOK</button></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
-

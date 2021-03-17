@@ -14,9 +14,17 @@ app.config['SECRET_KEY'] = os.getenv('REDIS_SERVER', 'SetThisAsEnv')
 
 # from lib.lib import getOrder, setOrder
 
+products = [
+    { "img" : "gpjb-cr.png", "name" : "Gold Plated Zirconia Ball 1.6"},
+    { "img" : "13512.jpg", "name" : "Barbell with 4mm Shamballa Balls"},
+    { "img" : "15470.jpg", "name" : "Crazy Lenses with Dracula desing (14mm)"},
+    { "img" : "10431.jpg", "name" : "Nipple Shield with Zirconia Chain"}
+]
+
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', products=products)
 
 @app.route("/test")
 def test():
