@@ -1,40 +1,13 @@
 {% extends "base.html" %}
-
+    <title>Kroppskunst.no</title>
 {% block header %}
-    <link href="/images/{{ setup.id }}/site.css" rel="stylesheet" />
-    <link href="/images/{{ setup.id }}/favicon.ico" rel="icon" type="image/x-icon" />
+
+
 {% endblock %}
 
 {% block content %}
-<section class="container section scrollspy" id="about">
-    {% for story in stories %}
-    <div class="row">
-        {% if story.align == "right" %}
-        <div class="col s12 l4 offset-l1 push-l7">
-            {% else %}
-            <div class="col s12 l4">
-                {% endif %}
-                <img src='/images/{{ setup.id }}/{{ story.img }}' alt="" class="responsive-img materialboxed">
-            </div>
-            {% if story.align == "right" %}
-            <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                {% else %}
-                <div class="col s12 l6 offset-l1">
-                    {% endif %}
 
-                    <h2 class="indigo-text text-darken-4 truncate">{{ story.header}}</h2>
-                    {{ story.text|safe}}
-                </div>
-            </div>
-            {% endfor %}
-</section>
 
-<!-- parallax -->
-<div class="parallax-container">
-    <div class="parallax">
-        <img src="img/parallax1.jpg" alt="" class="responsive-img">
-    </div>
-</div>
 
 {% endblock %}
 
