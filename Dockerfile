@@ -1,4 +1,4 @@
-FROM python:latest
+FROM ingemoen/ubuntu-pysql
 
 
 RUN apt-get upgrade -y
@@ -13,8 +13,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 ENV FLASK_DEBUG 1

@@ -3,33 +3,47 @@
 {% block header %}
 <style>
     .card-title {
-        height: 5rem; 
-        color:#d32930; 
-        padding-left: 0.5rem; 
-        padding-right: 0.5rem; 
-        padding-top: 1rem;
-        margin: 0;
-        font-weight: bold;
         text-align: center;
         overflow: hidden;
+        height: 7rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 1rem;
+        margin: 0;
+    }
+
+    .card-title1 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #d32930;
+    }
+
+    .card-title2 {
+        font-size: 0.8rem;
+        font-weight: normal;
+        color: black;
     }
 
     .card-image {
-        height: 17rem;
+        height: 15rem;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         overflow: hidden;
+        align-self: center;
 
     }
 
     .card-image img {
-        max-height:fit-content;
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
     }
 
     .card-button {
         width: 100%;
     }
-
 </style>
 
 
@@ -42,13 +56,16 @@
     <div class="col">
         <div class="card">
             <div class="card-title">
-                <h5>{{ product.name }}</h5>
+                <span class="card-title1">{{ product.producttext }}</span><br/>
+                <span class="card-title2">({{ product.producttext2 }}) </span>
             </div>
             <div class="card-image">
-                <img src="https://img.kroppskunst.no/images/products/{{ product.img }}" class="card-img-top" alt="...">
+                <img src="https://img.kroppskunst.no/images/products/{{ product.Picture }}" class="card-img-top"
+                    alt="...">
             </div>
             <div class="card-body">
-                <p class="card-text"><button type="button" class="btn btn-primary card-button">fra 28.19 NOK</button></p>
+                <p class="card-text"><button type="button" class="btn btn-primary card-button">fra {{
+                        "%.2f"|format(product.Price) }} {{ product.DisplayCurrency }}</button></p>
             </div>
         </div>
     </div>

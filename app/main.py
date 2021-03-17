@@ -3,27 +3,25 @@ import os
 import pprint
 from flask import Flask, request, session, render_template, Response
 
+########################
+## Import MyLibs
+########################
+from lib.mySql import mySqlQuery
+
+########################
+## Import Modules
+########################
 from about.about import about
 
 app = Flask(__name__)
 app.debug = True
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'SetThisAsEnv')
 app.register_blueprint(about, url_prefix='/about')
-
-redis_host = os.getenv('REDIS_SERVER', 'redis')
-app.config['SECRET_KEY'] = os.getenv('REDIS_SERVER', 'SetThisAsEnv')
-
-# from lib.lib import getOrder, setOrder
-
-products = [
-    { "img" : "gpjb-cr.png", "name" : "Gold Plated Zirconia Ball 1.6"},
-    { "img" : "13512.jpg", "name" : "Barbell with 4mm Shamballa Balls"},
-    { "img" : "15470.jpg", "name" : "Crazy Lenses with Dracula desing (14mm)"},
-    { "img" : "10431.jpg", "name" : "Nipple Shield with Zirconia Chain"}
-]
-
 
 @app.route('/')
 def index():
+
+    products = mySqlQuery('dbo.sp_ProductsGet_v3_00 @guid=76393978, @language=no, @page=0, @level0=1, @level1=1, @level2=185, @qtyin=100')
     return render_template('index.html', products=products)
 
 @app.route("/test")

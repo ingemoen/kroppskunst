@@ -1,2 +1,2 @@
 #/bin/sh
-python app/main.py
+python3 app/main.py
